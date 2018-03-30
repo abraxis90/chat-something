@@ -1,11 +1,13 @@
-<div *ngIf="post | async as p">
-  <h2>{{ p.text }}</h2>
-  <h4>Votes: {{p.likes}}</h4>
+<div *ngIf="users$ | async as users">
 
-  <button (click)="upvote()">Upvote</button>
-  <button (click)="downvote()">Downvote</button>
-  <button (click)="resetPost()">Reset</button>
+  <mat-spinner *ngIf="users.loading"></mat-spinner>
 
-  <input [(ngModel)]="text" >
-  <button (click)="editText()">Change Title</button>
+  <ul *ngFor="let user of users.userList">
+    <li>{{ user.fullName }}</li>
+    <li>{{ user.age }}</li>
+  </ul>
+
 </div>
+
+
+<button (click)="GetUsers()">Load Users from Firebase</button>

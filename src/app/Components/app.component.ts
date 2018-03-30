@@ -1,12 +1,13 @@
 import {Component} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
+import {AngularFirestore} from 'angularfire2/firestore';
 
-import {Post} from '../Models/post.model';
-import * as PostActions from '../Actions/post.actions';
+import {User} from '../Models/users.model';
+import * as usersActions from '../Actions/users.actions';
 
 interface AppState {
-  post: Post;
+  users: Array<any>;
 }
 
 
@@ -16,26 +17,14 @@ interface AppState {
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  post: Observable<Post>;
   text: string;
+  users$: any;
 
-  constructor(private store: Store<AppState>) {
-    this.post = store.select('post');
+  constructor(private store: Store<AppState>, db: AngularFirestore) {
+    this.users$ = this.store.select('users');
   }
 
-  editText() {
-    this.store.dispatch(new PostActions.EditText(this.text) );
-  }
-
-  resetPost() {
-    this.store.dispatch(new PostActions.Reset());
-  }
-
-  upvote() {
-    this.store.dispatch(new PostActions.Upvote());
-  }
-
-  downvote() {
-    this.store.dispatch(new PostActions.Downvote());
+  GetUsers() {
+    this.store.dispatch(new usersActions.GetUsers('Users'));
   }
 }
