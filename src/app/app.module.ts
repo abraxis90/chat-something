@@ -17,11 +17,13 @@ import {environment} from '../environments/environment';
 
 import {AppComponent} from './Components/app.component';
 import {usersReducer} from './Reducers/users.reducer';
+import { UserCardComponent } from './Components/user-card/user-card.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
