@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {Observable} from 'rxjs/Observable';
 import {AngularFirestore} from 'angularfire2/firestore';
@@ -16,15 +16,19 @@ interface AppState {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  text: string;
+export class AppComponent implements OnInit {
   users$: any;
 
   constructor(private store: Store<AppState>, db: AngularFirestore) {
     this.users$ = this.store.select('users');
   }
 
-  GetUsers() {
+  getUsers() {
     this.store.dispatch(new usersActions.GetUsers('Users'));
   }
+
+  ngOnInit() {
+    this.getUsers();
+  }
 }
+

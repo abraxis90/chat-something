@@ -7,17 +7,23 @@ import {FormsModule} from '@angular/forms';
 import {StoreDevtoolsModule} from '@ngrx/store-devtools';
 
 import {UsersEffects} from './Effects/users.effects';
+import {usersReducer} from './Reducers/users.reducer';
+
 
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatCardModule} from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+
 
 import {AngularFireModule} from 'angularfire2';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {environment} from '../environments/environment';
 
-import {AppComponent} from './Components/app.component';
-import {usersReducer} from './Reducers/users.reducer';
-import { UserCardComponent } from './Components/user-card/user-card.component';
+import {AppComponent} from './Containers/app.component';
+import {UserCardComponent} from './Components/user-card/user-card.component';
 
 
 @NgModule({
@@ -28,7 +34,11 @@ import { UserCardComponent } from './Components/user-card/user-card.component';
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     MatProgressSpinnerModule,
+    MatIconModule,
+    MatCardModule,
+    MatButtonModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     EffectsModule.forRoot([UsersEffects]),

@@ -2,12 +2,8 @@
 
   <mat-spinner *ngIf="users.loading"></mat-spinner>
 
-  <ul *ngFor="let user of users.userList">
-    <li>{{ user.fullName }}</li>
-    <li>{{ user.age }}</li>
-  </ul>
+  <div *ngFor="let user of users.userList">
+    <app-user-card [user]="user"></app-user-card>
+  </div>
 
 </div>
-
-
-<button (click)="GetUsers()">Load Users from Firebase</button>
