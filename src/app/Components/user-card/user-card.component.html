@@ -1,15 +1,20 @@
 <mat-card class="match-card no_select">
-  <!--<img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">-->
   <div class="card-image-container">
     <div class="quick_detail_holder horizontal_padding_24">
-      <h3 class="quick_details color_white">{{user.fullName}}, {{user.age}}</h3>
+      <h3 class="quick_details color_white text_align_left">
+        <strong>{{user.fullName}}, {{user.age}}</strong>
+      </h3>
     </div>
   </div>
   <mat-card-content class="match_description horizontal_padding_24">
-    <p>{{user.description}}</p>
+    <p class="text_align_left">{{user.description}}</p>
   </mat-card-content>
-  <mat-card-actions class="horizontal_padding_24 no_margin">
-    <button class="action_button no_padding" mat-button><mat-icon aria-hidden="true">close</mat-icon></button>
-    <button class="action_button no_padding no_margin" mat-button><mat-icon aria-hidden="true">favorite</mat-icon></button>
+  <mat-card-actions class="no_margin">
+    <button class="action_button no_padding" mat-button>
+      <mat-icon aria-hidden="true" class="large_icon">close</mat-icon>
+    </button>
+    <button class="action_button no_padding no_margin" mat-button>
+      <mat-icon aria-hidden="true" color="primary" class="large_icon">favorite</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>

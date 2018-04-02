@@ -24,7 +24,6 @@ export class UsersEffects {
   @Effect()
   GetUsers: Observable<Action> = this.actions.ofType(usersActions.GET_USERS)
     .map((action: usersActions.GetUsers) => action.payload)
-    .delay(2000) // delay to show spinner
     .mergeMap(payload => this.db.collection(payload).valueChanges())
     // TODO: find a way to limit the number of users taken. Don't update the view unless the currently loaded users update
     .map(users => {

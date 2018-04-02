@@ -1,9 +1,15 @@
-<div *ngIf="users$ | async as users">
+<div class="container">
+  <div class="row fill_viewport_height center-xs middle-xs no_margin">
+    <div *ngIf="users$ | async as users">
 
-  <mat-spinner *ngIf="users.loading"></mat-spinner>
+      <mat-spinner *ngIf="users.loading"></mat-spinner>
 
-  <div *ngFor="let user of users.userList">
-    <app-user-card [user]="user"></app-user-card>
+      <div *ngFor="let user of users.userList">
+        <app-user-card [user]="user"></app-user-card>
+      </div>
+
+    </div>
   </div>
-
 </div>
+
+
