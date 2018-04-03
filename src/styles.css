@@ -90,6 +90,10 @@ table {
   /* Non-prefixed version, currently supported by Chrome and Opera */
 }
 
+.full_height {
+  height: 100%;
+}
+
 .color_white {
   color: #ffffff;
 }
