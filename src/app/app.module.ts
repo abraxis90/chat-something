@@ -24,12 +24,24 @@ import {environment} from '../environments/environment';
 
 import {AppComponent} from './Containers/app.component';
 import {UserCardComponent} from './Components/user-card/user-card.component';
+import {HammertimeDirective} from './Directive/hammertime.directive';
+
+import * as Hammer from 'hammerjs';
+import { HammerGestureConfig, HAMMER_GESTURE_CONFIG } from '@angular/platform-browser';
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  overrides = <any>{
+    // override hammerjs default configuration
+    'swipe': { direction: Hammer.DIRECTION_ALL  }
+  }
+}
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserCardComponent
+    UserCardComponent,
+    HammertimeDirective
   ],
   imports: [
     BrowserModule,
@@ -51,7 +63,10 @@ import {UserCardComponent} from './Components/user-card/user-card.component';
       maxAge: 5
     })
   ],
-  providers: [],
+  providers: [{
+    provide: HAMMER_GESTURE_CONFIG,
+    useClass: MyHammerConfig
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule {

@@ -1,4 +1,7 @@
-<mat-card class="match-card no_select">
+<mat-card
+  (pan)="handleDrag($event)"
+  [ngStyle]="styleTranslateModel"
+  class="match-card no_select">
   <div class="card-image-container">
     <div class="quick_detail_holder horizontal_padding_24">
       <h3 class="quick_details color_white text_align_left">
