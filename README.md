@@ -1,6 +1,6 @@
 # Meetup
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.6.3. Simple chat application with authentication. Uses ngRx to wrap firebase in order to make state management easy in a real-time application.
 
 ## Development server
 
